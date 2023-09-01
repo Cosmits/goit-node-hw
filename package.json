@@ -2,6 +2,7 @@
   "name": "goit-node-hw-02-06",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "type": "module",
   "main": "server.js",
   "scripts": {
