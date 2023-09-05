@@ -1,8 +1,6 @@
 import { ctrlWrapper } from "../decorators/index.js"
 import { HttpError } from "../helpers/index.js"
-import contacts from "../models/contacts.js"
-// import schemaValidation from "../schemas/contacts-schemas.js"
-
+import contacts from "../models/contactsDB.js"
 
 const getAllContacts = async (req, res, next) => {
   const contactList = await contacts.listContacts()

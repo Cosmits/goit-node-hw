@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import ctrl from '../../controllers/contacts-controllers.js'
 import { validateContacts } from '../../middleware/validation/index.js'
-import schemaValidation from '../../schemas/contacts-schemas.js'
+import schemaValidation from '../../schemas/contactsValidation.js'
 
 const router = Router()
 
