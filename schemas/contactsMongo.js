@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose'
-// import { handleMongooseError } from '../helpers'
 
 const contactSchema = new Schema({
   name: {
@@ -8,6 +7,7 @@ const contactSchema = new Schema({
   },
   email: {
     type: String,
+    unique: true,
   },
   phone: {
     type: String,
@@ -16,10 +16,8 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
-}, { versionKey: false, timestamps: true })
+}, { versionKey: false, timestamps: false })
 
-// contactSchema.post('save', handleMongooseError)
-
-const Contact = model('db-contacts', contactSchema)
+const Contact = model('contacts', contactSchema)
 
 export default Contact;
