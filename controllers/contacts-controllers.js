@@ -80,6 +80,8 @@ const updateStatusContact = async (req, res, next) => {
   // const { error } = schemaValidation.validate(req.body)
   // if (error) throw HttpError(404, 'missing fields')
 
+  if (typeof favorite !== 'boolean') throw HttpError(400, 'missing field favorite')
+
   const currentContact = await contacts.updateContact(contactId, { favorite }, { new: true })
   if (!currentContact) throw HttpError(404, 'Not found')
 
