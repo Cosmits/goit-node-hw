@@ -17,11 +17,15 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
 }, { versionKey: false, timestamps: false })
 
 contactSchema.post("save", handleMongooseError);
-contactSchema.pre("findOneAndUpdate", runValidateAtUpdate);
 
+contactSchema.pre("findOneAndUpdate", runValidateAtUpdate);
 contactSchema.post("findOneAndUpdate", handleMongooseError);
 
 const Contact = model('contacts', contactSchema)
