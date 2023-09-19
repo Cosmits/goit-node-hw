@@ -1,7 +1,7 @@
 import ContactsMongo from '../schemas/contactsMongo.js';
 
-const listContacts = async () => {
-  return await ContactsMongo.find();
+const listContacts = async (filterObject) => {
+  return await ContactsMongo.find(filterObject, ).populate("owner");;
 };
 
 const getContactById = async (id) => {
