@@ -5,7 +5,7 @@ import contacts from "../models/contactsDB.js"
 
 const getAllContacts = async (req, res, next) => {
   const { _id: owner } = req.user;
-  const { page = 1, limit = 1, favorite } = req.query;
+  const { page = 1, limit = 10, favorite } = req.query;
   const filterObject = favorite ? { owner, favorite } : { owner };
   const skip = (page - 1) * limit;
   const params = { skip, limit, }
@@ -52,8 +52,9 @@ const createContact = async (req, res, next) => {
 
   // const { error } = schemaValidation.validate(req.body)
   // if (error) throw HttpError(400, 'Missing required name field')
-
-  const currentContact = await contacts.addContact({ name, email, phone })
+  const { _id: owner } = req.user
+    
+  const currentContact = await contacts.addContact({ name, email, phone, owner })
   if (!currentContact) throw HttpError(404, 'Not found')
 
   res.json({
