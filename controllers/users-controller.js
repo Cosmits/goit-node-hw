@@ -6,10 +6,13 @@ import gravatar from 'gravatar';
 import User from '../schemas/usersMongo.js';
 import HttpError from '../helpers/HttpError.js';
 import ctrlWrapper from '../decorators/ctrlWrapper.js';
-import envs from '../models/env.js';
 import path from 'path'
 import fs from 'fs/promises';
 
+import dotenv from 'dotenv';
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+
+const JWT_SECRET = process.env.JWT_SECRET
 
 const register = async (req, res) => {
   const { email, password } = req.body;
@@ -30,7 +33,6 @@ const register = async (req, res) => {
   });
 };
 
-
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -41,7 +43,7 @@ const login = async (req, res) => {
   const { _id: id } = user
   const payload = { id }
 
-  const token = jwt.sign(payload, envs.JWT_SECRET, { expiresIn: '23h' })
+  const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '23h' })
 
   await User.findByIdAndUpdate(id, { token })
 

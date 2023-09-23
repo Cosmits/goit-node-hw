@@ -6,9 +6,6 @@ import path from 'path'
 import authRouter from './routes/api/auth-router.js'
 import contactsRouter from './routes/api/contacts-router.js'
 
-import dotenv from 'dotenv'
-dotenv.config()
-
 const app = express()
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
