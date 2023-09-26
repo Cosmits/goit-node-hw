@@ -35,4 +35,4 @@
 Створити файлики 
 .env.development  
 .env.production
-.env.test
+.env.forTest
