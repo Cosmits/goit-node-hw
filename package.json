@@ -9,7 +9,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules npx jest --color",
+    "test": "cross-env NODE_ENV=forTest NODE_OPTIONS=--experimental-vm-modules npx jest --color",
     "clearCache": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles  --clearCache  --clearMocks",
     "start": "cross-env NODE_ENV=production node ./server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./server.js",
