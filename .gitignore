@@ -4,3 +4,4 @@ node_modules/
 .vscode
 .env.production
 .env.development
+.env.test

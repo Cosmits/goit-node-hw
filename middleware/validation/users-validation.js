@@ -5,4 +5,6 @@ const userValidate = validateBody(usersSchemas.userSignupValidation);
 
 const userSubscriptionValidate = validateBody(usersSchemas.usersSubscriptionFieldSchema);
 
-export default { userValidate, userSubscriptionValidate };
+const userEmailValidate = validateBody(usersSchemas.userEmailSchema);
+
+export default { userValidate, userSubscriptionValidate, userEmailValidate };
