@@ -51,11 +51,14 @@ describe('auth test', () => {
     expect(res.body.email).toBe(req.email);
     expect(res.body.subscription).toEqual(expect.any(String));
     expect(res.body.avatarURL).toEqual(expect.any(String));
-    expect(res.body.avatarURL).toEqual(expect.stringContaining('www.gravatar.com/avatar'));
+    expect(res.body.avatarURL).toEqual(expect.stringContaining('gravatar.com/avatar'));
     expect(Object.keys(res.body).length).toEqual(5);
 
     const newUser = await User.findOne({ email: req.email });
     expect(newUser.email).toBe(req.email);
+
+    //for verification success 
+    await User.findByIdAndUpdate(newUser._id, { verify: true, verificationToken: "Verify" });
   })
 
   test('register - duplicate register email', async () => {

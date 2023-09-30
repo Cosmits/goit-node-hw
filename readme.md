@@ -29,3 +29,10 @@
 - `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
 - `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
 - `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+- `npm run test` &mdash; запуск тестів 
+- `npm run clearCache` &mdash; почистити кеш тестування
+
+Створити файлики 
+.env.development  
+.env.production
+.env.forTest
